@@ -1,0 +1,474 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Microsoft.Owin.Hosting</name>
+  </assembly>
+  <members>
+    <member name="T:Microsoft.Owin.Hosting.StartOptions">
+      <summary>Параметры для управления поведением запуска приложения OWIN</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.StartOptions.#ctor">
+      <summary>Инициализирует новый экземпляр класса <see cref="T:Microsoft.Owin.Hosting.StartOptions" />.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.StartOptions.#ctor(System.String)">
+      <summary>Инициализирует новый экземпляр класса <see cref="T:Microsoft.Owin.Hosting.StartOptions" />.</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Hosting.StartOptions.AppStartup">
+      <summary>Параметр для поиска и загрузки процедуры запуска веб-приложения</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Hosting.StartOptions.Port">
+      <summary>Порт для прослушивания.</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Hosting.StartOptions.ServerFactory">
+      <summary>Имя сборки, содержащей реализацию сервера http</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Hosting.StartOptions.Settings">
+      <summary>Дополнительные настройки, используемые для переопределения типов служб и других параметров, заданных по умолчанию</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Hosting.StartOptions.Urls">
+      <summary>Список префиксов URL-адресов для прослушивания.Переопределяет порт.</summary>
+    </member>
+    <member name="T:Microsoft.Owin.Hosting.WebApp">
+      <summary>Эти методы используются для загрузки, сборки и запуска веб-приложения.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.WebApp.Start(Microsoft.Owin.Hosting.StartOptions)">
+      <summary>Запуск веб-приложения с использованием указанных настроек и типа точки входа, а также настроек по умолчанию для незаданных элементов.</summary>
+      <returns>Экземпляр IDisposible, который можно вызвать, чтобы завершить работу веб-приложения.</returns>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.WebApp.Start``1(Microsoft.Owin.Hosting.StartOptions)">
+      <summary>Запуск веб-приложения с использованием указанных настроек и типа точки входа, а также настроек по умолчанию для незаданных элементов.</summary>
+      <returns>Экземпляр IDisposible, который можно вызвать, чтобы завершить работу веб-приложения.</returns>
+      <typeparam name="TStartup"></typeparam>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.WebApp.Start(Microsoft.Owin.Hosting.StartOptions,System.Action{Owin.IAppBuilder})">
+      <summary>Запуск веб-приложения с использованием указанных настроек и точки входа, а также настроек по умолчанию для незаданных элементов.</summary>
+      <returns>Экземпляр IDisposible, который можно вызвать, чтобы завершить работу веб-приложения.</returns>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.WebApp.Start(System.String)">
+      <summary>Запуск веб-приложения с использованием указанных настроек и типа точки входа, а также настроек по умолчанию для незаданных элементов.</summary>
+      <returns>Экземпляр IDisposible, который можно вызвать, чтобы завершить работу веб-приложения.</returns>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.WebApp.Start``1(System.String)">
+      <summary>Запуск веб-приложения с использованием настроек по умолчанию, указанного URL-адреса и типа точки входа.например,Ознакомьтесь с ServerFactory и пройдите по указанному URL-адресу.</summary>
+      <returns>Экземпляр IDisposible, который можно вызвать, чтобы завершить работу веб-приложения.</returns>
+      <typeparam name="TStartup"></typeparam>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.WebApp.Start(System.String,System.Action{Owin.IAppBuilder})">
+      <summary>Запуск веб-приложения с использованием настроек по умолчанию, указанного URL-адреса и точки входа.например,Ознакомьтесь с ServerFactory и пройдите по указанному URL-адресу.</summary>
+      <returns>Экземпляр IDisposible, который можно вызвать, чтобы завершить работу веб-приложения.</returns>
+    </member>
+    <member name="T:Microsoft.Owin.Hosting.Builder.AppActivator">
+      <summary>Представляет активатор приложений.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Builder.AppActivator.#ctor(System.IServiceProvider)">
+      <summary>Инициализирует новый экземпляр класса <see cref="T:Microsoft.Owin.Hosting.Builder.AppActivator" />.</summary>
+      <param name="services">Поставщик услуг для этого приложения.</param>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Builder.AppActivator.Activate(System.Type)">
+      <summary>Активирует приложение указанного типа.</summary>
+      <returns>Активированное приложение.</returns>
+      <param name="type">Тип приложения.</param>
+    </member>
+    <member name="T:Microsoft.Owin.Hosting.Builder.AppBuilderFactory">
+      <summary>Представляет фабрику создания приложений.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Builder.AppBuilderFactory.#ctor">
+      <summary>Инициализирует новый экземпляр класса <see cref="T:Microsoft.Owin.Hosting.Builder.AppBuilderFactory" />.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Builder.AppBuilderFactory.Create">
+      <summary>Создает нового построителя приложений.</summary>
+      <returns>Созданный <see cref="T:Owin.IAppBuilder" />.</returns>
+    </member>
+    <member name="T:Microsoft.Owin.Hosting.Builder.IAppActivator">
+      <summary>Представляет базовый класс, который предоставляет активатор приложений.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Builder.IAppActivator.Activate(System.Type)">
+      <summary>Активирует приложение указанного типа.</summary>
+      <returns>Активированное приложение.</returns>
+      <param name="type">Тип приложения.</param>
+    </member>
+    <member name="T:Microsoft.Owin.Hosting.Builder.IAppBuilderFactory">
+      <summary>Представляет интерфейс, который предоставляет фабрику создания приложения.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Builder.IAppBuilderFactory.Create">
+      <summary>Создает нового построителя приложений.</summary>
+      <returns>Новый построитель приложений.</returns>
+    </member>
+    <member name="T:Microsoft.Owin.Hosting.Engine.HostingEngine">
+      <summary>Используется для инициализации и запуска веб-приложения.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Engine.HostingEngine.#ctor(Microsoft.Owin.Hosting.Builder.IAppBuilderFactory,Microsoft.Owin.Hosting.Tracing.ITraceOutputFactory,Microsoft.Owin.Hosting.Loader.IAppLoader,Microsoft.Owin.Hosting.ServerFactory.IServerFactoryLoader,Microsoft.Owin.Logging.ILoggerFactory)"></member>
+    <member name="M:Microsoft.Owin.Hosting.Engine.HostingEngine.Start(Microsoft.Owin.Hosting.Engine.StartContext)">
+      <summary>Инициализация и запуск веб-приложения.Основные шаги: — Найдите и инициализируйте ServerFactory — Найдите и инициализируйте приложение — Запустите сервер</summary>
+    </member>
+    <member name="T:Microsoft.Owin.Hosting.Engine.IHostingEngine">
+      <summary>Инициализирует и запускает веб-приложение.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Engine.IHostingEngine.Start(Microsoft.Owin.Hosting.Engine.StartContext)">
+      <summary>Инициализирует и запускает веб-приложение.</summary>
+    </member>
+    <member name="T:Microsoft.Owin.Hosting.Engine.StartContext">
+      <summary>Этот класс содержит соответствующее приложение и состояние сервера во время запуска.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Engine.StartContext.#ctor(Microsoft.Owin.Hosting.StartOptions)">
+      <summary>Создание нового StartContext с заданными параметрами.Если заданные параметры не определяют никаких настроек, они будут загружены из файла config.</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Hosting.Engine.StartContext.App">
+      <summary>Сформированный конвейер приложения OWIN.</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Hosting.Engine.StartContext.Builder">
+      <summary>IAppBuilder, используемый для формирования конвейера приложения OWIN.</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Hosting.Engine.StartContext.EnvironmentData">
+      <summary>Список ключей и связанные с ними значения, которые внедряются узлом в каждую среду запроса OWIN.</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Hosting.Engine.StartContext.Options">
+      <summary>Начальные параметры, предоставляемые конструктору.</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Hosting.Engine.StartContext.ServerFactory">
+      <summary>Фабрика, используемая для создания сервера.</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Hosting.Engine.StartContext.Startup">
+      <summary>Точка входа приложения, где определяется конвейер.</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Hosting.Engine.StartContext.TraceOutput">
+      <summary>TextWriter для записи диагностических данных.</summary>
+    </member>
+    <member name="T:Microsoft.Owin.Hosting.Loader.AppLoader">
+      <summary>Предоставляет методы для загрузки приложения.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Loader.AppLoader.#ctor(System.Collections.Generic.IEnumerable{Microsoft.Owin.Hosting.Loader.IAppLoaderFactory})">
+      <summary>Инициализирует новый экземпляр класса <see cref="T:Microsoft.Owin.Hosting.Loader.AppLoader" />.</summary>
+      <param name="providers">Поставщики данного AppLoader.</param>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Loader.AppLoader.Load(System.String,System.Collections.Generic.IList{System.String})">
+      <summary>Выполняет загрузчик, осуществляя поиск точки входа по имени.</summary>
+      <returns>Объект <see cref="T:System.Action`1" />, представляющий операцию загрузки.</returns>
+      <param name="appName">Имя сборки и тип точки входа.</param>
+      <param name="errors">Коллекция ошибок.</param>
+    </member>
+    <member name="T:Microsoft.Owin.Hosting.Loader.AppLoaderFactory">
+      <summary>Инициализирует загрузчик нового приложения.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Loader.AppLoaderFactory.#ctor(Microsoft.Owin.Hosting.Builder.IAppActivator)">
+      <summary>Инициализирует новый экземпляр класса <see cref="T:Microsoft.Owin.Hosting.Loader.AppLoaderFactory" />.</summary>
+      <param name="activator">Активатор приложения.</param>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Loader.AppLoaderFactory.Create(System.Func{System.String,System.Collections.Generic.IList{System.String},System.Action{Owin.IAppBuilder}})">
+      <summary>Создает новый связанный загрузчик приложений.</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Hosting.Loader.AppLoaderFactory.Order">
+      <summary>В настоящий момент не используется.</summary>
+    </member>
+    <member name="T:Microsoft.Owin.Hosting.Loader.IAppLoader">
+      <summary>Пытается найти точку входа для приложения.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Loader.IAppLoader.Load(System.String,System.Collections.Generic.IList{System.String})">
+      <summary>Пытается найти точку входа для строки данной конфигурации.</summary>
+    </member>
+    <member name="T:Microsoft.Owin.Hosting.Loader.IAppLoaderFactory">
+      <summary>Инициализирует загрузчик нового приложения.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Loader.IAppLoaderFactory.Create(System.Func{System.String,System.Collections.Generic.IList{System.String},System.Action{Owin.IAppBuilder}})">
+      <summary>Создает новый связанный загрузчик приложений.</summary>
+    </member>
+    <member name="P:Microsoft.Owin.Hosting.Loader.IAppLoaderFactory.Order">
+      <summary>В настоящий момент не используется.</summary>
+    </member>
+    <member name="T:Microsoft.Owin.Hosting.ServerFactory.IServerFactoryActivator">
+      <summary>Представляет интерфейс активатора фабрики серверов.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.ServerFactory.IServerFactoryActivator.Activate(System.Type)">
+      <summary>Активирует указанную фабрику серверов.</summary>
+      <returns>Фабрика серверов.</returns>
+      <param name="type">Тип фабрики серверов.</param>
+    </member>
+    <member name="T:Microsoft.Owin.Hosting.ServerFactory.IServerFactoryAdapter">
+      <summary>Предоставляет интерфейс адаптера фабрики приложений.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.ServerFactory.IServerFactoryAdapter.Create(Owin.IAppBuilder)">
+      <summary>Создает экземпляр фабрики серверов.</summary>
+      <returns>Созданная фабрика серверов.</returns>
+      <param name="builder">Построитель приложений.</param>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.ServerFactory.IServerFactoryAdapter.Initialize(Owin.IAppBuilder)">
+      <summary>Инициирует объект фабрики серверов.</summary>
+      <param name="builder">Построитель приложений.</param>
+    </member>
+    <member name="T:Microsoft.Owin.Hosting.ServerFactory.IServerFactoryLoader">
+      <summary>Предоставляет интерфейс загрузчика фабрики приложений.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.ServerFactory.IServerFactoryLoader.Load(System.String)">
+      <summary>Загружает указанную фабрику серверов.</summary>
+      <returns>Загружаемая фабрика серверов.</returns>
+      <param name="serverName">Имя фабрики серверов.</param>
+    </member>
+    <member name="T:Microsoft.Owin.Hosting.ServerFactory.ServerFactoryActivator">
+      <summary>Используется для создания экземпляра фабрики серверов.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.ServerFactory.ServerFactoryActivator.#ctor(System.IServiceProvider)">
+      <summary>Инициализирует новый экземпляр класса <see cref="T:Microsoft.Owin.Hosting.ServerFactory.ServerFactoryActivator" />.</summary>
+      <param name="services">Поставщик услуг.</param>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.ServerFactory.ServerFactoryActivator.Activate(System.Type)">
+      <summary>Создает экземпляр данного типа.</summary>
+    </member>
+    <member name="T:Microsoft.Owin.Hosting.ServerFactory.ServerFactoryAdapter">
+      <summary>Основной контракт ServerFactory.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.ServerFactory.ServerFactoryAdapter.#ctor(System.Object)">
+      <summary>Создает оболочку вокруг данного экземпляра фабрики серверов.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.ServerFactory.ServerFactoryAdapter.#ctor(System.Type,Microsoft.Owin.Hosting.ServerFactory.IServerFactoryActivator)">
+      <summary>Создает оболочку вокруг данного типа фабрики серверов.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.ServerFactory.ServerFactoryAdapter.Create(Owin.IAppBuilder)">
+      <summary>Вызывает метод Create на фабрике серверов.Метод может быть статическим или экземпляром, и может принимать AppFunc и &amp;amp;lt;строку, объект&amp;amp;gt; IAppBuilder.Properties IDictionary.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.ServerFactory.ServerFactoryAdapter.Initialize(Owin.IAppBuilder)">
+      <summary>Вызывает необязательный метод Initialize на фабрике серверов.Метод может быть статическим или экземпляром, и может принимать или, AppFunc или &amp;amp;lt;строку, объект&amp;amp;gt; IAppBuilder.Properties IDictionary.</summary>
+    </member>
+    <member name="T:Microsoft.Owin.Hosting.ServerFactory.ServerFactoryLoader">
+      <summary>Находит и загружает фабрику серверов.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.ServerFactory.ServerFactoryLoader.#ctor(Microsoft.Owin.Hosting.ServerFactory.IServerFactoryActivator)">
+      <summary> Позволяет задать активатор внедрения зависимостей. </summary>
+      <param name="activator">Активатор фабрики серверов.</param>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.ServerFactory.ServerFactoryLoader.Load(System.String)">
+      <summary>Выполняет загрузчика, осуществляя поиск фабрики сервера по имени.Допустимые входные данные: - null, empty и т.д.Поиск сборки, содержащей тип [Assembly.Name].ServerFactory.- Assembly.Name.Поиск типа Assembly.Name.ServerFactory в сборке Assembly.Name.- Assembly.Name.FactoryName.Поиск типа Assembly.Name.FactoryName в сборке Assembly.Name.</summary>
+      <returns>Загружаемый объект фабрики серверов.</returns>
+      <param name="serverName">Имя сборки и типа фабрики серверов.</param>
+    </member>
+    <member name="T:Microsoft.Owin.Hosting.Services.ActivatorUtilities">
+      <summary>Код вспомогательного приложения для различных служб активаторов.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Services.ActivatorUtilities.CreateFactory(System.Type)">
+      <summary>Создает фабрику для создания экземпляра типа по возможности с помощью внесения службы конструктора.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Services.ActivatorUtilities.CreateInstance(System.IServiceProvider,System.Type)">
+      <summary>Создает экземпляр объекта данного типа по возможности с помощью внесения службы конструктора.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Services.ActivatorUtilities.GetServiceOrCreateInstance(System.IServiceProvider,System.Type)">
+      <summary>Получает экземпляр данного типа из поставщика служб.Если таковой не найден, тогда экземпляр создается напрямую.</summary>
+    </member>
+    <member name="T:Microsoft.Owin.Hosting.Services.ServiceProvider">
+      <summary>Поставщик IServiceProvider по умолчанию.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Services.ServiceProvider.#ctor">
+      <summary>Инициализирует новый экземпляр класса <see cref="T:Microsoft.Owin.Hosting.Services.ServiceProvider" />.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Services.ServiceProvider.Add``2">
+      <summary>Указание на то, что служба типа TService должны выполняться типом TImplementation.</summary>
+      <typeparam name="TService"></typeparam>
+      <typeparam name="TImplementation"></typeparam>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Services.ServiceProvider.Add(System.Type,System.Func{System.Object})">
+      <summary>Указание на то, что службы данного типа должны быть созданы данной фабрикой serviceFactory.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Services.ServiceProvider.Add(System.Type,System.Type)">
+      <summary>Указание на то, что служба типа serviceType должны выполняться типом implementationType.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Services.ServiceProvider.AddInstance``1(System.Object)">
+      <summary>Добавление экземпляра типа TService в список поставщиков.</summary>
+      <typeparam name="TService"></typeparam>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Services.ServiceProvider.AddInstance(System.Type,System.Object)">
+      <summary>Добавление экземпляра данного типа TService в список поставщиков.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Services.ServiceProvider.GetService(System.Type)">
+      <summary>Получает объект службы указанного типа.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Services.ServiceProvider.RemoveAll``1">
+      <summary>Удаление всех вхождений данного типа из поставщика.</summary>
+      <typeparam name="T"></typeparam>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Services.ServiceProvider.RemoveAll(System.Type)">
+      <summary>Удаление всех вхождений данного типа из поставщика.</summary>
+    </member>
+    <member name="T:Microsoft.Owin.Hosting.Services.ServiceProviderExtensions">
+      <summary>Методы расширения для IServiceProvider.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Services.ServiceProviderExtensions.GetService``1(System.IServiceProvider)">
+      <typeparam name="T"></typeparam>
+    </member>
+    <member name="T:Microsoft.Owin.Hosting.Services.ServicesFactory">
+      <summary>Создание поставщика ServiceProvider по умолчанию с вводом из различных источников.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Services.ServicesFactory.Create">
+      <summary>Создание поставщика ServiceProvider по умолчанию.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Services.ServicesFactory.Create(System.Action{Microsoft.Owin.Hosting.Services.ServiceProvider})">
+      <summary>Создание поставщика ServiceProvider по умолчанию.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Services.ServicesFactory.Create(System.Collections.Generic.IDictionary{System.String,System.String})">
+      <summary>Создание поставщика ServiceProvider по умолчанию с заданными настройками.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Services.ServicesFactory.Create(System.Collections.Generic.IDictionary{System.String,System.String},System.Action{Microsoft.Owin.Hosting.Services.ServiceProvider})">
+      <summary>Создание поставщика ServiceProvider по умолчанию с заданными настройками.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Services.ServicesFactory.Create(System.String)">
+      <summary>Создание поставщика ServiceProvider по умолчанию с файлом заданных настроек.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Services.ServicesFactory.Create(System.String,System.Action{Microsoft.Owin.Hosting.Services.ServiceProvider})">
+      <summary>Создание поставщика ServiceProvider по умолчанию с файлом заданных настроек.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Services.ServicesFactory.ForEach(System.Action{System.Type,System.Type})">
+      <summary>Перечисление типов служб по умолчанию.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Services.ServicesFactory.ForEach(System.Collections.Generic.IDictionary{System.String,System.String},System.Action{System.Type,System.Type})">
+      <summary>Перечисление типов служб по умолчанию с переопределениями заданных настроек.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Services.ServicesFactory.ForEach(System.String,System.Action{System.Type,System.Type})">
+      <summary>Перечисление типов служб по умолчанию с переопределениями файла заданных настроек.</summary>
+    </member>
+    <member name="T:Microsoft.Owin.Hosting.Starter.DirectHostingStarter">
+      <summary>Выполняет IHostingEngine без внесения изменений в текущую среду выполнения.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Starter.DirectHostingStarter.#ctor(Microsoft.Owin.Hosting.Engine.IHostingEngine)">
+      <summary>Инициализирует новый экземпляр класса <see cref="T:Microsoft.Owin.Hosting.Starter.DirectHostingStarter" />.</summary>
+      <param name="engine">Модуль.</param>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Starter.DirectHostingStarter.Start(Microsoft.Owin.Hosting.StartOptions)">
+      <summary>Выполняет IHostingEngine без внесения изменений в текущую среду выполнения.</summary>
+    </member>
+    <member name="T:Microsoft.Owin.Hosting.Starter.DomainHostingStarter">
+      <summary>Представляет диспетчер размещения на сервере домена.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Starter.DomainHostingStarter.#ctor">
+      <summary>Инициализирует новый экземпляр класса <see cref="T:Microsoft.Owin.Hosting.Starter.DomainHostingStarter" />.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Starter.DomainHostingStarter.Start(Microsoft.Owin.Hosting.StartOptions)">
+      <summary>Запускает размещение на сервере домена.</summary>
+      <returns>Экземпляр <see cref="T:System.IDisposable" />, который можно вызвать, чтобы завершить размещение на сервере.</returns>
+      <param name="options">Начальные параметры.</param>
+    </member>
+    <member name="T:Microsoft.Owin.Hosting.Starter.DomainHostingStarterAgent">
+      <summary>Используется для выполнения подсистемы IHostingEngine в новом домене AppDomain.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Starter.DomainHostingStarterAgent.#ctor">
+      <summary>Инициализирует новый экземпляр класса <see cref="T:Microsoft.Owin.Hosting.Starter.DomainHostingStarterAgent" />.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Starter.DomainHostingStarterAgent.Dispose">
+      <summary>Освобождает ресурсы, используемые экземпляром класса <see cref="T:Microsoft.Owin.Hosting.Starter.DomainHostingStarterAgent" />.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Starter.DomainHostingStarterAgent.Dispose(System.Boolean)">
+      <summary>Освобождает неуправляемые ресурсы, используемые экземпляром класса <see cref="T:Microsoft.Owin.Hosting.Starter.DomainHostingStarterAgent" />, и при необходимости освобождает и управляемые ресурсы.</summary>
+      <param name="disposing">Значение true, чтобы освободить все ресурсы (управляемые и неуправляемые); значение false, чтобы освободить только неуправляемые ресурсы.</param>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Starter.DomainHostingStarterAgent.Renewal(System.Runtime.Remoting.Lifetime.ILease)">
+      <summary>Продлевает данную аренду на 5 минут.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Starter.DomainHostingStarterAgent.ResolveAssembliesFromDirectory(System.String)">
+      <summary>Регистрирует сопоставитель резервной сборки, который выполняет поиск в заданном каталоге.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Starter.DomainHostingStarterAgent.Start(Microsoft.Owin.Hosting.StartOptions)">
+      <summary>Выполняет IHostingEngine в новом домене AppDomain.</summary>
+    </member>
+    <member name="T:Microsoft.Owin.Hosting.Starter.HostingStarter">
+      <summary>Определяет, какой из экземпляров IHostingStarter использовать через фабрику IHostingSterterFactory.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Starter.HostingStarter.#ctor(Microsoft.Owin.Hosting.Starter.IHostingStarterFactory)">
+      <summary>Инициализирует новый экземпляр класса <see cref="T:Microsoft.Owin.Hosting.Starter.HostingStarter" />.</summary>
+      <param name="hostingStarterFactory">Фабрика диспетчеров размещения на сервере.</param>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Starter.HostingStarter.Start(Microsoft.Owin.Hosting.StartOptions)">
+      <summary>Определяет, какой из экземпляров IHostingStarter использовать через фабрику IHostingSterterFactory.</summary>
+    </member>
+    <member name="T:Microsoft.Owin.Hosting.Starter.HostingStarterActivator">
+      <summary>Представляет активатор диспетчера размещения на сервере.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Starter.HostingStarterActivator.#ctor(System.IServiceProvider)">
+      <summary>Инициализирует новый экземпляр класса <see cref="T:Microsoft.Owin.Hosting.Starter.HostingStarterActivator" />.</summary>
+      <param name="services">Поставщики служб.</param>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Starter.HostingStarterActivator.Activate(System.Type)">
+      <summary>активирует диспетчер размещения на сервере заданного типа.</summary>
+      <returns>Активируемый <see cref="T:Microsoft.Owin.Hosting.Starter.IHostingStarter" />.</returns>
+      <param name="type">Тип диспетчера размещения на сервере.</param>
+    </member>
+    <member name="T:Microsoft.Owin.Hosting.Starter.HostingStarterAttribute">
+      <summary>Предоставляет атрибут диспетчера размещения на сервере.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Starter.HostingStarterAttribute.#ctor(System.Type)">
+      <summary>Инициализирует новый экземпляр класса <see cref="T:Microsoft.Owin.Hosting.Starter.HostingStarterAttribute" />.</summary>
+      <param name="hostingStarterType">Тип диспетчера размещения на сервере.</param>
+    </member>
+    <member name="P:Microsoft.Owin.Hosting.Starter.HostingStarterAttribute.HostingStarterType">
+      <summary>Получает или задает тип диспетчера размещения на сервере.</summary>
+      <returns>Тип диспетчера размещения на сервере.</returns>
+    </member>
+    <member name="T:Microsoft.Owin.Hosting.Starter.HostingStarterFactory">
+      <summary>Выбирает из известных пускателей размещения, или определяет дополнительных поставщиков по соглашению.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Starter.HostingStarterFactory.#ctor(Microsoft.Owin.Hosting.Starter.IHostingStarterActivator)">
+      <summary>Инициализирует новый экземпляр класса <see cref="T:Microsoft.Owin.Hosting.Starter.HostingStarterFactory" />.</summary>
+      <param name="hostingStarterActivator">Активатор запуска размещения на сервере.</param>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Starter.HostingStarterFactory.Create(System.String)">
+      <summary>Выбирает из известных пускателей размещения, или определяет дополнительных поставщиков по соглашению.</summary>
+    </member>
+    <member name="T:Microsoft.Owin.Hosting.Starter.IHostingStarter">
+      <summary>Выполняет любую необходимую настройку среды перед исполнением IHostingEngine.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Starter.IHostingStarter.Start(Microsoft.Owin.Hosting.StartOptions)">
+      <summary>Выполняет любую необходимую настройку среды перед исполнением IHostingEngine.</summary>
+    </member>
+    <member name="T:Microsoft.Owin.Hosting.Starter.IHostingStarterActivator">
+      <summary>Предоставляет интерфейс для диспетчера размещения на сервере.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Starter.IHostingStarterActivator.Activate(System.Type)">
+      <summary>Активирует диспетчера размещения на сервере.</summary>
+      <returns>Активируемый диспетчер размещения на сервере.</returns>
+      <param name="type">Тип диспетчера размещения на сервере.</param>
+    </member>
+    <member name="T:Microsoft.Owin.Hosting.Starter.IHostingStarterFactory">
+      <summary>Предоставляет интерфейс для фабрики диспетчера размещения на сервере.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Starter.IHostingStarterFactory.Create(System.String)">
+      <summary>Создает экземпляр диспетчера размещения на сервере.</summary>
+      <returns>Созданный диспетчер размещения на сервере.</returns>
+      <param name="name">Имя диспетчера размещения на сервере.</param>
+    </member>
+    <member name="T:Microsoft.Owin.Hosting.Tracing.ITraceOutputFactory">
+      <summary>Представляет выходной файл для отслеживания в фабрике.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Tracing.ITraceOutputFactory.Create(System.String)">
+      <summary>Создает модуль записи текста для вывода.</summary>
+      <returns>Модуль записи текста для вывода.</returns>
+      <param name="outputFile">Выходной файл.</param>
+    </member>
+    <member name="T:Microsoft.Owin.Hosting.Tracing.TraceOutputFactory">
+      <summary>Представляет выходные файлы для отслеживания в фабрике.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Tracing.TraceOutputFactory.#ctor">
+      <summary>Инициализирует новый экземпляр класса <see cref="T:Microsoft.Owin.Hosting.Tracing.TraceOutputFactory" />.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Tracing.TraceOutputFactory.Create(System.String)">
+      <summary>Создает модуль записи текста для вывода.</summary>
+      <returns>Модуль записи текста для вывода.</returns>
+      <param name="outputFile">Выходной файл.</param>
+    </member>
+    <member name="T:Microsoft.Owin.Hosting.Utilities.SettingsLoader">
+      <summary>Представляет настройки, связанные с загрузчиком.</summary>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Utilities.SettingsLoader.LoadFromConfig">
+      <summary>Загружает файл, указанный в конфигурации.</summary>
+      <returns>Файл, указанный в конфигурации.</returns>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Utilities.SettingsLoader.LoadFromConfig(System.Collections.Generic.IDictionary{System.String,System.String})">
+      <summary>Загружает файл, указанный в настройках конфигурации.</summary>
+      <param name="settings">Настройки конфигурации.</param>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Utilities.SettingsLoader.LoadFromSettingsFile(System.String)">
+      <summary>Загружает файл, указанный в настройках файла.</summary>
+      <returns>Файл, указанный в настройках файла.</returns>
+      <param name="settingsFile">Имя файла настроек.</param>
+    </member>
+    <member name="M:Microsoft.Owin.Hosting.Utilities.SettingsLoader.LoadFromSettingsFile(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+      <summary>Загружает файл, указанный в настройках файла.</summary>
+      <param name="settingsFile">Имя файла настроек.</param>
+      <param name="settings">Настройки конфигурации.</param>
+    </member>
+  </members>
+</doc>
